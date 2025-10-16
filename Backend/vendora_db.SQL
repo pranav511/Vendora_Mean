@@ -6,10 +6,16 @@ CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(150) UNIQUE NOT NULL,
+  phone VARCHAR(15) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  role ENUM('Admin','Customer') DEFAULT 'Customer',
+  otp VARCHAR(6),
+  verified BOOLEAN DEFAULT 0,
+  reset_otp VARCHAR(6),
+  reset_expiry DATETIME,
+  role ENUM('Admin', 'Customer') DEFAULT 'Customer',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Products Table
 CREATE TABLE products (
